@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+echo "---> Installing application source..."
+cp -Rf /tmp/src/webapps/* $CATALINA_HOME/webapps
+cp -Rf /tmp/src/conf/* $CATALINA_HOME/conf
