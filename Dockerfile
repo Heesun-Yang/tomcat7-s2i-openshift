@@ -14,7 +14,8 @@ RUN chmod 775 /usr/local/s2i/* \
   && chmod -R 775 /usr/local/tomcat \
   && chown -R tomcat:root /usr/local/tomcat
 
-#COPY simple.war /usr/local/tomcat/webapps/
+# Persistent Volume
+volume $CATALINA_HOME/logs
 
 EXPOSE 8080
 
