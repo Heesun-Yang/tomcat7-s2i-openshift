@@ -1,0 +1,33 @@
+# How to add spec and annotations to ImageStream
+[root@ip-10-10-99-34 tomcat7-s2i]# oc edit is tomcat7-s2i -n openshift -o yaml
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: 2017-12-01T08:10:23Z
+  creationTimestamp: 2017-12-01T07:46:46Z
+  generation: 8
+  name: tomcat7-s2i
+  namespace: openshift
+  resourceVersion: "1530025"
+  selfLink: /oapi/v1/namespaces/openshift/imagestreams/tomcat7-s2i
+  uid: c7f79e3f-d66b-11e7-874a-02971be351d9
+spec:
+  dockerImageRepository: 172.30.0.3:5000/openshift/tomcat7-s2i
+  tags:
+  - annotations:
+      description: Rockplace Tomcat 7 S2I images.
+      iconClass: icon-jboss
+      openshift.io/display-name: Rockplace Tomcat 7
+      sampleRepo: https://github.com/Heesun-Yang/tomcat7-simple
+      supports: tomcat7:3.1,tomcat:7,java:8,xpaas:1.4
+      tags: builder,tomcat,tomcat7,java,jboss,xpaas
+      version: latest
+    from:
+      kind: DockerImage
+      name: 172.30.0.3:5000/openshift/tomcat7-s2i:latest
+    generation: 8
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
