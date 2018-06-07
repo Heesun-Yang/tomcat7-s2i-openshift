@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/display-name: Tomcat7-S2I-Openshift
+    openshift.io/provider-display-name: Rockplace
+  name: tomcat7-s2i-openshift
+  namespace: openshift
+spec:
+  dockerImageRepository: rockplace/tomcat7-s2i-openshift
+  tags:
+  - annotations:
+      description: Rockplace Tomcat 7 S2I images.
+      iconClass: icon-jboss
+      openshift.io/display-name: Rockplace Tomcat 7
+      sampleRepo: https://github.com/Heesun-Yang/tomcat7-simple
+      supports: tomcat7:3.1,tomcat:7,java:8,xpaas:1.4
+      tags: builder,tomcat,tomcat7,java,xpaas
+      version: 7.0.82
+    from:
+      kind: DockerImage
+      name: rockplace/tomcat7-s2i-openshift:7.0.82
+    importPolicy: {}
+    name: 7.0.82
+    referencePolicy:
+      type: Source
